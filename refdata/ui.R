@@ -11,11 +11,12 @@ shinyUI(
         selectInput("domain","Domain",c("",faosws::GetDomainNames())),
         selectInput("dataset","Dataset",c("")),
         selectInput("dimension","Dimension",c("")),
-        submitButton("Show data")
+        actionButton("showData","Show data")
       ),
       mainPanel(
-        h4("Reference data")
-        #tableOutput("table")
+        h4("Reference data"),
+        verbatimTextOutput("refDataLabel"),
+        dataTableOutput('refData')
       )
     )
   )  
